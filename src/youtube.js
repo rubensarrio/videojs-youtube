@@ -30,7 +30,7 @@
 
       // Save those for internal usage
       this.player_ = player;
-      this.player_el_ = document.getElementById(player.id());
+      this.player_el_ = player.el_;
       this.player_el_.className += ' vjs-youtube';
 
       // Create the Quality button
