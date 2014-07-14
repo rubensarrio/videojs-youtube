@@ -485,6 +485,8 @@
 
   videojs.Youtube.prototype.onStateChange = function(state){
     if (state != this.lastState){
+	  this.lastState = state;
+
       switch(state){
         case -1:
           this.player_.trigger('durationchange');
@@ -532,8 +534,6 @@
         case YT.PlayerState.CUED:
           break;
       }
-
-      this.lastState = state;
     }
   };
 
