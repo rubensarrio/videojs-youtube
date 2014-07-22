@@ -134,7 +134,7 @@
         }
 
         if (videojs.Youtube.apiReady){
-          this.loadYoutube();
+          setTimeout(function() { self.loadYoutube(); }, 100);
         } else {
           // Add to the queue because the YouTube API is not ready
           videojs.Youtube.loadingQueue.push(this);
