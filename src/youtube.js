@@ -298,6 +298,8 @@
   videojs.Youtube.prototype.load = function(){};
 
   videojs.Youtube.prototype.play = function(){
+    this.el_.currentTime = null;
+
     if (this.videoId != null) {
       // Make sure to not display the spinner for mobile
       if (!this.player_.options()['ytcontrols']) {
@@ -313,7 +315,10 @@
     }
   };
 
-  videojs.Youtube.prototype.pause = function(){ this.ytplayer.pauseVideo(); };
+  videojs.Youtube.prototype.pause = function(){
+    this.el_.currentTime = null;
+    this.ytplayer.pauseVideo();
+  };
   videojs.Youtube.prototype.paused = function(){ return (this.ytplayer)?(this.lastState !== YT.PlayerState.PLAYING && this.lastState !== YT.PlayerState.BUFFERING):true; };
   videojs.Youtube.prototype.currentTime = function(){
     if (this.el_.currentTime) {
